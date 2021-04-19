@@ -8,7 +8,7 @@ Heart disease is the leading cause of death for men, women, and people of most r
 ![deaths_map](/starter_file/images/fs_heart_disease.png)
 
 ![deaths](/starter_file/images/percentages_deaths_stratified_by_ethnic_gender.png)
-**Fig 1. Deaths stratified by race, ethnic and gender. From Centers for Disease Control and Prevention ([CDC])(https://www.cdc.gov/)**
+**Fig 1. Deaths stratified by race, ethnic and gender. From Centers for Disease Control and Prevention [(CDC)](https://www.cdc.gov/)**
 
 *TODO:* Write a short introduction to your project.
 
