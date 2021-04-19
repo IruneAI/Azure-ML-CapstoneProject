@@ -1,6 +1,11 @@
 *NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
-# Heart Attack Analysis & Prediction
+# Heart Disease Analysis & Prediction
+
+Heart disease is the leading cause of death for men, women, and people of most racial and ethnic groups in the United States. **One person dies every 36 seconds in the United States from cardiovascular disease. About 655,000 Americans die from heart disease each year—that's 1 in every 4 deaths**. 
+
+
+Fig 1. Deaths stratified by race, ethnic and gender. From Centers for Disease Control and Prevention (CDC).
 
 *TODO:* Write a short introduction to your project.
 
