@@ -19,12 +19,12 @@ In this project, I will be approaching a **classification problem** for Heart Di
 
 ### Overview
 
-The dataset used by this project was available under [Kaggle](https://www.kaggle.com/ronitf/heart-disease-uci). This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The "goal" field refers to the presence of heart disease in the patient. It is integer valued from 0 (no presence) to 4.
+The dataset used by this project was available under [Kaggle](https://www.kaggle.com/ronitf/heart-disease-uci). This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The "goal" field refers to the presence of heart disease in the patient (0: no presence, 1: presence)
 
 
 ### Task
 
-The task will be a classication task to 'determine'the presente of a heart disease ranging from 0 to 4 as stated above (target). For that, the following features will be used:
+The task will be a binay classication task to 'determine'the presence of a heart disease (being target [0,1]). For that, the following features will be used:
 - age
 - sex
 - chest pain type (4 values)
