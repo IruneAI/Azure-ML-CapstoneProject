@@ -43,7 +43,10 @@ The task will be a binay classication task to 'determine'the presence of a heart
 The dataset will be accesible/exposed within AzureML datastore.
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+The concept of utomated ML isthe process of automating the tasks of applying ML to real-world problems. Usually it helps to automate the whole ML workflow/pipeline enabling the data scientist or even non-experts to leverage ML in a efficient manner. 
+
+In this case, Azure AutoML gave me the possibility to try multiple algorithms in this classification task. Due to the high balance of the data "primary_metric" : 'accuracy' was chosen. As compute target 
+
 
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
