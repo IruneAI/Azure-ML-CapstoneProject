@@ -10,7 +10,7 @@ Heart disease is the leading cause of death for men, women, and people of most r
 ![deaths](/starter_file/images/percentages_deaths_stratified_by_ethnic_gender.png)
 **Fig 1. Deaths stratified by race, ethnic and gender. From Centers for Disease Control and Prevention [(CDC)](https://www.cdc.gov/)**
 
-*TODO:* Write a short introduction to your project.
+In this project, I will be approaching a **classification problem** for Heart Disease *understanding* as well as predict the *presence of heart disease in a patient*. For that, I will be working under AzureML context and exploiting different capabilities for supporting the **end to end ML workflow** on Azure CSP. 
 
 ## Project Set Up and Installation
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
