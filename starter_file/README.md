@@ -68,8 +68,6 @@ automl_config = AutoMLConfig(task='classification',
 ### Results
 
 
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
-
 
 ![run_details_automl](/starter_file/images/run_details_automl.png)
 
@@ -82,11 +80,18 @@ automl_config = AutoMLConfig(task='classification',
 
 **Fig 4. Best model Automl**
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
-
+For hyperparameter tuning decided to go to explore the parameter search space for the first simple approach (Occar razor): Logistic Regression. 
+These were the settings:
+hyperdrive_config = HyperDriveConfig(estimator=estimator,
+                                hyperparameter_sampling=param_sampling,
+                                policy=early_termination_policy,
+                                primary_metric_name=primary_metric_name,
+                                primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                                max_total_runs=100)
+                                #max_total_runs=40)
+Please refer to the code for further information.
 
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
