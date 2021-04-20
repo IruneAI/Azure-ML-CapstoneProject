@@ -124,5 +124,5 @@ Best model identified from AutoML was deployed. See below the healthy status of 
 ## Screen Recording
 Please follow the following link: https://drive.google.com/file/d/1SfNEbAA6gM5WbYy-Nse2F8Hrmr8imoi7/view?usp=sharing
 
-## Standout Suggestions
+## Future Improvements
 Additional manual feature engineering as well as ONNX support. Also, new datasets integration as well as correlated ones like Stroke. 
