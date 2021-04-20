@@ -23,8 +23,8 @@ def prepare_data(data):
 
 #getting run context
 run = Run.get_context()
-print('hsres')
-print (run.id)
+#print('hsres')
+#print (run.id)
 
 #getting training data
 ws = run.experiment.workspace
