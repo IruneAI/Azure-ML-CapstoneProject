@@ -102,7 +102,7 @@ Please refer to the code for further information.
 
 ## Model Deployment
 
-For model deployment the best model identified from AutoML. 
+Best model identified from AutoML was deployed. See below the healthy status of the service as well as the testing requests with a dummy payload.
 
 
 
