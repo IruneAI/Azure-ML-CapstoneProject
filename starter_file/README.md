@@ -72,9 +72,8 @@ automl_config = AutoMLConfig(task='classification',
 
 
 ![run_details_automl](/starter_file/images/run_details_automl.png)
+
 ![run_details_automl](/starter_file/images/run_details_automl2.png)
-
-
 **Fig 3. Run Details **
 
 
