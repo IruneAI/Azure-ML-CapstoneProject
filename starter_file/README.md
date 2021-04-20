@@ -102,16 +102,16 @@ Please refer to the code for further information.
 
 ## Model Deployment
 
-Best model identified from AutoML was deployed. See below the healthy status of the service as well as the testing requests with a dummy payload.
+Best model identified from AutoML was deployed. See below the healthy status of the service as well as the testing HTTP requests with a dummy payload.
 
 
 
-![hyperparameters_details](/starter_file/images/hyper_completed.png)
-**Fig 07. Hyperparameters Completed**
+![healthy_deployed_service](/starter_file/images/healthy_deployed_service.png)
+**Fig 07. Healthy status for deployed service**
 
 
-![hyperparameters_details](/starter_file/images/hyper_completed.png)
-**Fig 8. Hyperparameters Completed**
+![model_testing_endpoint](/starter_file/images/model_testing_endpoint.png)
+**Fig 8. Testing endpoint programatically.**
 
 
 
