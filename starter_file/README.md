@@ -110,12 +110,20 @@ Please refer to the code for further information.
 
 ## Model Deployment
 
-Best model identified from AutoML was deployed. See below the healthy status of the service as well as the testing HTTP requests with a dummy payload.
+Best model (best performance run on Accuracy) identified from AutoML was deployed. Deployment was done under the following configurations:
 
+- Number of CPU cores to allocate for this Webservice: cpu_cores=1,
+- memory_gb=1 (selft explanatory)
+- description='predicting heart diseases',
+- auth_enabled=True (Important feature for a secure consumption, see the screenshot below.
+- enable_app_insights= True,
+- collect_model_data = True
+
+Please see below the healthy status of the service as well as the testing HTTP requests with a dummy payload.
 
 
 ![healthy_deployed_service](/starter_file/images/healthy_deployed_service.png)
-**Fig 07. Healthy status for deployed service**
+**Fig 07. Healthy status for deployed service: heart-disease-service**
 
 
 ![model_testing_endpoint](/starter_file/images/model_testing_endpoint.png)
