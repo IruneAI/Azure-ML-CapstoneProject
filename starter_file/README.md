@@ -17,6 +17,9 @@ In this project, I will be approaching a **classification problem** for Heart Di
 
 The dataset used by this project was available under [Kaggle](https://www.kaggle.com/ronitf/heart-disease-uci). This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The "goal" field refers to the presence of heart disease in the patient (0: no presence, 1: presence)
 
+![data_accesibility](/starter_file/images/fs_heart_disease.png)
+**Fig 2. External Data Accesibility**
+
 
 ### Task
 
