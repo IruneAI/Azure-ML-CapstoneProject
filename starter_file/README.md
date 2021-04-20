@@ -94,11 +94,27 @@ hyperdrive_config = HyperDriveConfig(estimator=estimator,
 Please refer to the code for further information.
 
 ### Results
+![hyperparameters_details](/starter_file/images/hyperparameters_details.png)
+**Fig 5. Hyperparameters Details**
 
+![hyperparameters_details](/starter_file/images/hyper_completed.png)
+**Fig 6. Hyperparameters Completed**
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
-![best_model_automl](/starter_file/images/best_model_autml.png)
+
+For model deployment the best model identified from AutoML. 
+
+
+
+![hyperparameters_details](/starter_file/images/hyper_completed.png)
+**Fig 07. Hyperparameters Completed**
+
+
+![hyperparameters_details](/starter_file/images/hyper_completed.png)
+**Fig 8. Hyperparameters Completed**
+
+
+
 ## Screen Recording
 Please follow the following link: https://drive.google.com/file/d/1SfNEbAA6gM5WbYy-Nse2F8Hrmr8imoi7/view?usp=sharing
 
