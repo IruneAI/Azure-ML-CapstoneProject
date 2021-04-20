@@ -88,15 +88,17 @@ automl_config = AutoMLConfig(task='classification',
 
 
 ## Hyperparameter Tuning
-For hyperparameter tuning decided to go to explore the parameter search space for the first simple approach (Occar razor): Logistic Regression. 
-These were the settings:
-hyperdrive_config = HyperDriveConfig(estimator=estimator,
-                                hyperparameter_sampling=param_sampling,
-                                policy=early_termination_policy,
-                                primary_metric_name=primary_metric_name,
-                                primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                                max_total_runs=100)
-                                #max_total_runs=40)
+The main objective of usign Hyperdrive is to be able to find the configuration of hyperparameters that results in the best performance. This search space is usually computationally expensive as well as manual, so having an automated and efficient way to do is always interesting to explore.
+
+Different parameters could be optimizing depending of the algorithm we are working on. In this case, I decided to go to explore the parameter search space for the first simple approach (Occar razor): Logistic Regression. 
+
+One key aspect of the hyperparameters tuning is the actual definition of the *search space as well as *distributions* they are going to follow and *sampling methods*. This would impact greatly the performance of the models. Also, a primary metric definition is key for letting the exploration and explotation optimization process the direction it should follow based on the metric to be optimized (accuracy in this case). 
+
+The first approach selected for sampling was 'random sampling' over Grid and Bayesian. From Microsoft [documentation] (https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters) it supports both discrete and continuous hyperparameters as well as another important concept: **early termination** of low-performance runs, which help us saving computational resources. This is a good first approach to carry out and then refine the search space to improve results.
+
+Regading the early termination policy MedianStoppingPolicy was used. The interesting point is that this policy 'stops runs whose primary metric value is worse than the median of the averages'. 
+Hyperparameters explored were '--C' Inverse of regularization strength and '--max_iter' Maximum number of iterations to converge. These parameters optimization is pretty important not only for enabling convergence, but also to avoid eoverfitting as is the case of C parameter.
+
 Please refer to the code for further information.
 
 ### Results
@@ -126,3 +128,4 @@ Please follow the following link: https://drive.google.com/file/d/1SfNEbAA6gM5Wb
 
 ## Future Improvements
 Additional manual feature engineering as well as ONNX support. Also, new datasets integration as well as correlated ones like Stroke. 
+Explore additional parameters under Hyperdrive such as other sampling methods or add new parameters to the searching process. 
