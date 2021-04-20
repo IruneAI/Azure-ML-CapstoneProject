@@ -1,4 +1,3 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
 # Heart Disease Analysis & Prediction
 
@@ -11,9 +10,6 @@ Heart disease is the leading cause of death for men, women, and people of most r
 **Fig 1. Deaths stratified by race, ethnic and gender. From Centers for Disease Control and Prevention [(CDC)](https://www.cdc.gov/)**
 
 In this project, I will be approaching a **classification problem** for Heart Disease *understanding* as well as predict the *presence of heart disease in a patient*. For that, I will be working under [AzureML](https://azure.microsoft.com/en-us/services/machine-learning/) context and exploiting different capabilities for supporting the **end to end ML workflow** on [Azure](https://azure.microsoft.com/en-us/) CSP. 
-
-## Project Set Up and Installation
-*OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
 
 ## Dataset
 
@@ -84,10 +80,7 @@ automl_config = AutoMLConfig(task='classification',
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+Please follow the following link: https://drive.google.com/file/d/1SfNEbAA6gM5WbYy-Nse2F8Hrmr8imoi7/view?usp=sharing
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+Additional manual feature engineering as well as ONNX support. Also, new datasets integration as well as correlated ones like Stroke. 
