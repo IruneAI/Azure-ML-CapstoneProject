@@ -17,6 +17,9 @@ In this project, I will be approaching a **classification problem** for Heart Di
 
 The dataset used by this project was available under [Kaggle](https://www.kaggle.com/ronitf/heart-disease-uci). This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The "goal" field refers to the presence of heart disease in the patient (0: no presence, 1: presence)
 
+![data_accesibility](/starter_file/images/data_accesibility.png)
+**Fig 2. External Data Accesibility**
+
 
 ### Task
 
@@ -65,26 +68,37 @@ automl_config = AutoMLConfig(task='classification',
 ### Results
 
 
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
-
 
 ![run_details_automl](/starter_file/images/run_details_automl.png)
-**Fig 3. Run Details Widgets**
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+![run_details_automl](/starter_file/images/run_details_automl2.png)
+**Fig 3. Run Details**
+
+
+![best_model_automl](/starter_file/images/best_model_automl.png)
+![best_model_automl](/starter_file/images/best_model_autml.png)
+
+**Fig 4. Best model Automl**
+
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
-
+For hyperparameter tuning decided to go to explore the parameter search space for the first simple approach (Occar razor): Logistic Regression. 
+These were the settings:
+hyperdrive_config = HyperDriveConfig(estimator=estimator,
+                                hyperparameter_sampling=param_sampling,
+                                policy=early_termination_policy,
+                                primary_metric_name=primary_metric_name,
+                                primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                                max_total_runs=100)
+                                #max_total_runs=40)
+Please refer to the code for further information.
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
-
+![best_model_automl](/starter_file/images/best_model_autml.png)
 ## Screen Recording
 Please follow the following link: https://drive.google.com/file/d/1SfNEbAA6gM5WbYy-Nse2F8Hrmr8imoi7/view?usp=sharing
 
