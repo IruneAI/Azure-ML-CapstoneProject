@@ -63,7 +63,13 @@ automl_config = AutoMLConfig(task='classification',
 
 
 ### Results
+
+
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
+
+
+![run_details_automl](/starter_file/images/run_details_automl.png)
+**Fig 3. Run Details Widgets**
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
