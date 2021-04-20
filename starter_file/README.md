@@ -11,6 +11,8 @@ Heart disease is the leading cause of death for men, women, and people of most r
 
 In this project, I will be approaching a **classification problem** for Heart Disease *understanding* as well as predict the *presence of heart disease in a patient*. For that, I will be working under [AzureML](https://azure.microsoft.com/en-us/services/machine-learning/) context and exploiting different capabilities for supporting the **end to end ML workflow** on [Azure](https://azure.microsoft.com/en-us/) CSP. 
 
+The most interesting part of this project is that it shows the great power of AutoML as well as Hyperdrive under Azure. AutoML will provide us the possibility to create a benchmarking of different algorithms getting multiple models really **fast** and in an **efficient** way. Hyperdrive, howewer, will help us to boost the hyper parameters tuning/optimization with multiple approaches available for exploring and exploiting the parameters search space. Concretely, in this project, I decided to go from *simplest* classifcation approach (Logistic Regression) for hyperparameters tuning identifying best possible model and going further benchmkarkign different algorithms thanks to Azure AutoML.     
+
 ## Dataset
 
 ### Overview
