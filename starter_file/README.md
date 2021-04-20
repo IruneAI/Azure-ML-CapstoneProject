@@ -11,11 +11,17 @@ Heart disease is the leading cause of death for men, women, and people of most r
 
 In this project, I will be approaching a **classification problem** for Heart Disease *understanding* as well as predict the *presence of heart disease in a patient*. For that, I will be working under [AzureML](https://azure.microsoft.com/en-us/services/machine-learning/) context and exploiting different capabilities for supporting the **end to end ML workflow** on [Azure](https://azure.microsoft.com/en-us/) CSP. 
 
+The most interesting part of this project is that it shows the great power of **AutoML** as well as **Hyperdrive** under Azure. AutoML will provide us the possibility to create a benchmarking of different algorithms getting multiple models really **fast** and in an **efficient** way. Hyperdrive, howewer, will help us to boost the hyper parameters tuning/optimization with multiple approaches available for exploring and exploiting the parameters search space. Concretely, in this project, I decided to go from *simplest* classifcation approach (Logistic Regression) for hyperparameters tuning identifying best possible model and going further benchmkarkign different algorithms thanks to Azure AutoML. 
+
+Finally, thanks to combination of these approaches, **best model** was selected for further deployment and consumption. See model deployment section for further details.
+
 ## Dataset
 
 ### Overview
 
 The dataset used by this project was available under [Kaggle](https://www.kaggle.com/ronitf/heart-disease-uci). This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The "goal" field refers to the presence of heart disease in the patient (0: no presence, 1: presence)
+
+Since dataset is outside the Azure environment, this should have been registered. For that different approaches could be carrying out. In this case, the dataset was registered within AzureML Studio and uploaded to an allocated Azure Blob Storage (datastore) for further analysis and train/test. The data has been made available and consumed programmatically under current created Azure workspace (in this case workspaceblobstore).
 
 ![data_accesibility](/starter_file/images/data_accesibility.png)
 **Fig 2. External Data Accesibility**
@@ -42,9 +48,9 @@ The task will be a binay classication task to 'determine'the presence of a heart
 The dataset will be accesible/exposed within AzureML datastore.
 
 ## Automated ML
-The concept of utomated ML isthe process of automating the tasks of applying ML to real-world problems. Usually it helps to automate the whole ML workflow/pipeline enabling the data scientist or even non-experts to leverage ML in a efficient manner. 
+The concept of automated ML ist he process of automating the tasks of applying ML to real-world problems. Usually it helps to optimize the whole ML workflow/pipeline enabling the data scientist or even non-experts to leverage ML in a efficient manner. 
 
-In this case, Azure AutoML gave me the possibility to try multiple algorithms in this classification task. Due to the high balance of the data "primary_metric" : 'accuracy' was chosen. As compute target a STANDARD_D2_V2 was used with min_nodes=0 and max_nodes=4.
+In this case, Azure AutoML give us the possibility to try multiple algorithms (in this case for solving a classification task). Due to nature of the data (pretty balanced) accurary was selected as "primary_metric". As compute target a STANDARD_D2_V2 was used with min_nodes=0 and max_nodes=4.
 
 automl_settings = {
     "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
@@ -82,15 +88,17 @@ automl_config = AutoMLConfig(task='classification',
 
 
 ## Hyperparameter Tuning
-For hyperparameter tuning decided to go to explore the parameter search space for the first simple approach (Occar razor): Logistic Regression. 
-These were the settings:
-hyperdrive_config = HyperDriveConfig(estimator=estimator,
-                                hyperparameter_sampling=param_sampling,
-                                policy=early_termination_policy,
-                                primary_metric_name=primary_metric_name,
-                                primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                                max_total_runs=100)
-                                #max_total_runs=40)
+The main objective of usign Hyperdrive is to be able to find the configuration of hyperparameters that results in the best performance. This search space is usually computationally expensive as well as manual, so having an automated and efficient way to do is always interesting to explore.
+
+Different parameters could be optimizing depending of the algorithm we are working on. In this case, I decided to go to explore the parameter search space for the first simple approach (Occar razor): Logistic Regression. 
+
+One key aspect of the hyperparameters tuning is the actual definition of the *search space as well as *distributions* they are going to follow and *sampling methods*. This would impact greatly the performance of the models. Also, a primary metric definition is key for letting the exploration and explotation optimization process the direction it should follow based on the metric to be optimized (accuracy in this case). 
+
+The first approach selected for sampling was 'random sampling' over Grid and Bayesian. From Microsoft [documentation] (https://docs.microsoft.com/en-us/azure/machine-learning/how-to-tune-hyperparameters) it supports both discrete and continuous hyperparameters as well as another important concept: **early termination** of low-performance runs, which help us saving computational resources. This is a good first approach to carry out and then refine the search space to improve results.
+
+Regading the early termination policy MedianStoppingPolicy was used. The interesting point is that this policy 'stops runs whose primary metric value is worse than the median of the averages'. 
+Hyperparameters explored were '--C' Inverse of regularization strength and '--max_iter' Maximum number of iterations to converge. These parameters optimization is pretty important not only for enabling convergence, but also to avoid eoverfitting as is the case of C parameter.
+
 Please refer to the code for further information.
 
 ### Results
@@ -100,23 +108,39 @@ Please refer to the code for further information.
 ![hyperparameters_details](/starter_file/images/hyper_completed.png)
 **Fig 6. Hyperparameters Completed**
 
+The best model was the following:
+
+![best_model_hyper](/starter_file/images/best_model_hyper.png)
+**Fig 7. Best model Hyperdrive**
+
 ## Model Deployment
 
-Best model identified from AutoML was deployed. See below the healthy status of the service as well as the testing requests with a dummy payload.
+Best model (best performance run on Accuracy) identified from AutoML was deployed. Deployment was done under the following configurations:
+
+- Number of CPU cores to allocate for this Webservice: cpu_cores=1,
+- memory_gb=1 (self explanatory)
+- description='predicting heart diseases',
+- auth_enabled=True (Important feature for a secure consumption, see the screenshot below.
+- enable_app_insights= True,
+- collect_model_data = True
+
+Please see below the healthy status of the service as well as the testing HTTP requests with a dummy payload.
 
 
 
-![hyperparameters_details](/starter_file/images/hyper_completed.png)
-**Fig 07. Hyperparameters Completed**
+![healthy_deployed_service](/starter_file/images/healthy_deployed_service.png)
+**Fig 08. Healthy status for deployed service: heart-disease-service**
 
+The model could be consumed and tested with different approaches. Creating and endpoint.py script or test query the service embodied some JSOn dummy values for features in an HTTP request (post a payload). Important to make encode correct HEADERS, body as well as scoring_uri on the request.
 
-![hyperparameters_details](/starter_file/images/hyper_completed.png)
-**Fig 8. Hyperparameters Completed**
+![model_testing_endpoint](/starter_file/images/model_testing_endpoint.png)
+**Fig 9. Testing endpoint programatically.**
 
 
 
 ## Screen Recording
 Please follow the following link: https://drive.google.com/file/d/1SfNEbAA6gM5WbYy-Nse2F8Hrmr8imoi7/view?usp=sharing
 
-## Standout Suggestions
+## Future Improvements
 Additional manual feature engineering as well as ONNX support. Also, new datasets integration as well as correlated ones like Stroke. 
+Explore additional parameters under Hyperdrive such as other sampling methods or add new parameters to the searching process. 
