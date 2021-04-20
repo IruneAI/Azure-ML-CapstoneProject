@@ -21,6 +21,8 @@ Finally, thanks to combination of these approaches, **best model** was selected 
 
 The dataset used by this project was available under [Kaggle](https://www.kaggle.com/ronitf/heart-disease-uci). This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. The "goal" field refers to the presence of heart disease in the patient (0: no presence, 1: presence)
 
+Since dataset is outside the Azure environment, this should have been registered. For that different approaches could be carrying out. In this case, the dataset was registered within AzureML Studio and uploaded to an allocated Azure Blob Storage (datastore) for further analysis and train/test. The data has been made available and consumed programmatically under current created Azure workspace.
+
 ![data_accesibility](/starter_file/images/data_accesibility.png)
 **Fig 2. External Data Accesibility**
 
