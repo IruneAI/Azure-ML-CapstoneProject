@@ -74,13 +74,13 @@ automl_config = AutoMLConfig(task='classification',
 ![run_details_automl](/starter_file/images/run_details_automl.png)
 
 ![run_details_automl](/starter_file/images/run_details_automl2.png)
-**Fig 3. Run Details **
+**Fig 3. Run Details**
 
 
 ![best_model_automl](/starter_file/images/best_model_automl.png)
 ![best_model_automl](/starter_file/images/best_model_autml.png)
 
-**Fig 3. Best model Automl**
+**Fig 4. Best model Automl**
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
