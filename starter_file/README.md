@@ -94,13 +94,11 @@ hyperdrive_config = HyperDriveConfig(estimator=estimator,
 Please refer to the code for further information.
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
-
+![best_model_automl](/starter_file/images/best_model_autml.png)
 ## Screen Recording
 Please follow the following link: https://drive.google.com/file/d/1SfNEbAA6gM5WbYy-Nse2F8Hrmr8imoi7/view?usp=sharing
 
