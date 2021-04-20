@@ -108,6 +108,11 @@ Please refer to the code for further information.
 ![hyperparameters_details](/starter_file/images/hyper_completed.png)
 **Fig 6. Hyperparameters Completed**
 
+The best model was the following:
+
+![best_model_hyper](/starter_file/images/best_model_hyper.png)
+**Fig 7. Best model Hyperdrive**
+
 ## Model Deployment
 
 Best model (best performance run on Accuracy) identified from AutoML was deployed. Deployment was done under the following configurations:
@@ -124,12 +129,12 @@ Please see below the healthy status of the service as well as the testing HTTP r
 
 
 ![healthy_deployed_service](/starter_file/images/healthy_deployed_service.png)
-**Fig 07. Healthy status for deployed service: heart-disease-service**
+**Fig 08. Healthy status for deployed service: heart-disease-service**
 
 The model could be consumed and tested with different approaches. Creating and endpoint.py script or test query the service embodied some JSOn dummy values for features in an HTTP request (post a payload). Important to make encode correct HEADERS, body as well as scoring_uri on the request.
 
 ![model_testing_endpoint](/starter_file/images/model_testing_endpoint.png)
-**Fig 8. Testing endpoint programatically.**
+**Fig 9. Testing endpoint programatically.**
 
 
 
