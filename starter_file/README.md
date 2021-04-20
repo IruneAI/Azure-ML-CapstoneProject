@@ -113,7 +113,7 @@ Please refer to the code for further information.
 Best model (best performance run on Accuracy) identified from AutoML was deployed. Deployment was done under the following configurations:
 
 - Number of CPU cores to allocate for this Webservice: cpu_cores=1,
-- memory_gb=1 (selft explanatory)
+- memory_gb=1 (self explanatory)
 - description='predicting heart diseases',
 - auth_enabled=True (Important feature for a secure consumption, see the screenshot below.
 - enable_app_insights= True,
@@ -122,9 +122,11 @@ Best model (best performance run on Accuracy) identified from AutoML was deploye
 Please see below the healthy status of the service as well as the testing HTTP requests with a dummy payload.
 
 
+
 ![healthy_deployed_service](/starter_file/images/healthy_deployed_service.png)
 **Fig 07. Healthy status for deployed service: heart-disease-service**
 
+The model could be consumed and tested with different approaches. Creating and endpoint.py script or test query the service embodied some JSOn dummy values for features in an HTTP request (post a payload). Important to make encode correct HEADERS, body as well as scoring_uri on the request.
 
 ![model_testing_endpoint](/starter_file/images/model_testing_endpoint.png)
 **Fig 8. Testing endpoint programatically.**
